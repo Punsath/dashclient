@@ -33,8 +33,18 @@ const AddPetBottle = () => {
       return;
     }
 
+    const formData = new FormData();
+    formData.append("collection_point",petBottle.collection_point);
+    formData.append("weight",petBottle.weight);
+    formData.append("date_collected",petBottle.date_collected);
+    formData.append("description",petBottle.description);
+    formData.append("contact_person",petBottle.contact_person);
+    formData.append("contact_email",petBottle.contact_email);
+    formData.append("address",petBottle.address);
+    formData.append("collection_method",petBottle.collection_method);
+
     axios
-      .post("http://localhost:8000/api/add_pet_bottle", petBottle)
+      .post("http://localhost:8000/petbottles/add_pet_bottle", petBottle)
       .then((result) => {
         if (result.data.Status) {
           alert("Pet Bottle added successfully");

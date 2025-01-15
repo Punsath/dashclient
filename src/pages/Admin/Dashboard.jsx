@@ -3,19 +3,12 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 import axios from "axios";
 import {
   FiMenu,
-  FiX,
   FiLogOut,
-  FiHome,
-  FiUsers,
-  FiSettings,
-  FiUser,
-  FiFileText,
   FiPackage,
-  FiTrash,
-  FiMapPin,
-  FiTruck,
   FiMap,
-  FiRefreshCcw, // Replace FiRecycle with another icon if necessary
+  FiTruck,
+  FiMapPin,
+  FiUser,
 } from "react-icons/fi";
 
 const Dashboard = () => {
@@ -33,7 +26,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex h-screen bg-gray-100 overflow-hidden">
       {/* Sidebar */}
       <aside
         className={`fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-md flex flex-col justify-between transform transition-transform duration-300 ease-in-out ${
@@ -46,7 +39,7 @@ const Dashboard = () => {
         </div>
 
         {/* Sidebar Links */}
-        <nav className="flex flex-col space-y-4 p-4">
+        <nav className="flex flex-col space-y-4 p-4 overflow-y-auto">
           <Link
             to="/dashboard/pet_bottles"
             className="flex items-center p-3 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md transition duration-200"
@@ -61,9 +54,6 @@ const Dashboard = () => {
             <FiMap className="text-2xl mr-3" />
             <span className="text-lg font-medium">Hotspot Mapping</span>
           </Link>
-       
-          
-
           <Link
             to="/dashboard/waste_collection"
             className="flex items-center p-3 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md transition duration-200"
@@ -78,11 +68,6 @@ const Dashboard = () => {
             <FiMapPin className="text-2xl mr-3" />
             <span className="text-lg font-medium">River Interception</span>
           </Link>
-
-      
-
-        
-
           <Link
             to="/adminlogin"
             className="flex items-center p-3 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md transition duration-200"
@@ -113,7 +98,7 @@ const Dashboard = () => {
       )}
 
       {/* Main Content */}
-      <main className="flex-1 flex flex-col">
+      <main className="flex-1 flex flex-col h-full overflow-auto">
         {/* Header */}
         <header className="bg-white shadow-sm p-4 flex items-center justify-between">
           <h1 className="text-2xl font-bold text-gray-800">Project BlueCap</h1>
@@ -124,7 +109,7 @@ const Dashboard = () => {
         </header>
 
         {/* Main Dashboard Content */}
-        <div className="flex-1 p-6 bg-gray-50">
+        <div className="flex-1 p-6 bg-gray-50 overflow-auto">
           <Outlet />
         </div>
       </main>

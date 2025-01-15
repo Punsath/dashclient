@@ -19,7 +19,7 @@ const EditPetBottle = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/pet_bottle/${id}`)
+      .get(`http://localhost:8000/petbottles/pet_bottles/${id}`)
       .then((result) => {
         setPetBottle(result.data.Result[0]);
       })
@@ -30,7 +30,7 @@ const EditPetBottle = () => {
     e.preventDefault();
 
     axios
-      .put(`http://localhost:8000/api/edit_pet_bottle/${id}`, petBottle)
+      .put(`http://localhost:8000/petbottles/edit_pet_bottle/${id}`, petBottle)
       .then((response) => {
         if (response.data.Status) {
           alert("Pet Bottle updated successfully");

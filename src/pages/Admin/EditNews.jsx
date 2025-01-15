@@ -52,21 +52,20 @@ const EditNews = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100 p-4">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg">
-        <h3 className="text-xl font-semibold text-gray-800 text-center mb-4">
-          Edit News
-        </h3>
+      <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-2xl">
+        <h3 className="text-2xl font-semibold text-center mb-4 text-gray-800">Edit News</h3>
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Title</label>
+            <label className="block text-gray-700 font-medium">Title</label>
             <input
               type="text"
-              className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
+              className="w-full p-2 border rounded focus:ring focus:ring-indigo-300"
               placeholder="Enter Title"
               value={news.title}
               onChange={(e) => setNews({ ...news, title: e.target.value })}
             />
           </div>
+
           <div>
             <label className="block text-gray-700 font-medium">Date</label>
             <input
@@ -76,15 +75,17 @@ const EditNews = () => {
               onChange={(e) => setNews({ ...news, date: e.target.value })}
             />
           </div>
+
           <div>
-            <label className="block text-sm font-medium text-gray-700">Description</label>
+            <label className="block text-gray-700 font-medium">Description</label>
             <textarea
-              className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
+              className="w-full p-2 border rounded focus:ring focus:ring-indigo-300"
               placeholder="Enter Description"
               value={news.description}
               onChange={(e) => setNews({ ...news, description: e.target.value })}
             />
           </div>
+
           <div>
             <label className="block text-gray-700 font-medium">Select Image</label>
             <input
@@ -93,9 +94,10 @@ const EditNews = () => {
               onChange={(e) => setNews({ ...news, image: e.target.files[0] })}
             />
           </div>
+
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition"
+            className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition"
           >
             Edit News
           </button>

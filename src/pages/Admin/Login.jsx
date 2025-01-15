@@ -17,7 +17,7 @@ const Login = () => {
       .then(result => {
         if(result.data.loginStatus) {
           localStorage.setItem("valid", true);
-          navigate('/dashboard/employee');
+          navigate('/dashboard/pet_bottles');
         } else {
           setError(result.data.Error);
         }
